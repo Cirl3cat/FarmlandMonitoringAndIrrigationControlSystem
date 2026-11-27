@@ -4,6 +4,22 @@ HarmonyOS（ArkTS）手机端看板：从华为云 IoTDA 读取设备影子，�
 
 > 本仓库只有 **北向（App）**。南向固件（RK2206 / LiteOS-M）不在本仓库内，两者通过云端 MQTT 协议对接，契约见下文。
 
+## 界面预览
+
+以下截图来自 `Huawei_TripleFold` 模拟器（HarmonyOS 6.0.0(20)，单屏 1008×2232 @460dpi），**浅色 / 深色两套主题**：
+
+| 农田监测（首页） | 发现 | 我的 |
+|:---:|:---:|:---:|
+| ![](docs/screenshots/01-home-light.jpg) | ![](docs/screenshots/02-discover-light.jpg) | ![](docs/screenshots/03-profile-light.jpg) |
+
+| 设置（浅色） | 农田监测（深色） | 设置（深色） |
+|:---:|:---:|:---:|
+| ![](docs/screenshots/04-settings-light.jpg) | ![](docs/screenshots/05-home-dark.jpg) | ![](docs/screenshots/06-settings-dark.jpg) |
+
+三个 tab 页底部都是**悬浮亚克力胶囊导航**：内容从胶囊和系统手势条底下穿过，滚到底时胶囊盖在页面末尾那块空白上，最后一项完整可点。设置页里放不下的长值（应用名、设备 ID）点整行可进二级页看全文。
+
+---
+
 ---
 
 ## 快速开始
