@@ -1,9 +1,9 @@
 {
   "app": {
-    "bundleName": "com.example.farmlandmonitoringandirrigationcontrolsystem",
+    "bundleName": "com.example.t_t",
     "vendor": "example",
-    "versionCode": 1000000,
-    "versionName": "1.0.0",
+    "versionCode": 50500,
+    "versionName": "0.5.5",
     "icon": "$media:layered_image",
     "label": "$string:app_name"
   }

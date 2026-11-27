@@ -2,15 +2,15 @@
   "string": [
     {
       "name": "module_desc",
-      "value": "module description"
+      "value": "智能农田监测施肥灌溉一体化系统"
     },
     {
       "name": "EntryAbility_desc",
-      "value": "description"
+      "value": "农田环境监测与设备状态看板"
     },
     {
       "name": "EntryAbility_label",
-      "value": "label"
+      "value": "智慧农田"
     }
   ]
 }

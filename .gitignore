@@ -4,9 +4,14 @@
 /.idea
 **/build
 /.hvigor
+/.preview
+**/.preview
 .cxx
 /.clangd
 /.clang-format
 /.clang-tidy
 **/.test
 /.appanalyzer
+
+# 账号口令 / 设备密钥，切勿提交
+entry/src/main/ets/common/Secrets.ets

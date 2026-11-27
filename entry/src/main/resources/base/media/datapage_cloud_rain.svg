@@ -1,0 +1,22 @@
+<!--
+tags: [weather, dry]
+category: Weather
+version: "1.0"
+unicode: "ea72"
+-->
+<svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+>
+  <!-- 云朵主体 - 改为填充 -->
+  <path d="M7 18a4.6 4.4 0 0 1 0 -9a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7z" fill="#FFFFFF"/>
+
+  <!-- 雨滴 - 改为填充矩形 -->
+  <rect x="10" y="13" width="2" height="4" fill="#FFFFFF" rx="1"/>
+  <rect x="10" y="18" width="2" height="4" fill="#FFFFFF" rx="1"/>
+  <rect x="14" y="15" width="2" height="4" fill="#FFFFFF" rx="1"/>
+  <rect x="14" y="20" width="2" height="4" fill="#FFFFFF" rx="1"/>
+</svg>

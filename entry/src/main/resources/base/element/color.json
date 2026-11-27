@@ -2,7 +2,23 @@
   "color": [
     {
       "name": "start_window_background",
+      "value": "#F5F7FA"
+    },
+    {
+      "name": "text_on_banner",
       "value": "#FFFFFF"
+    },
+    {
+      "name": "text_on_banner_secondary",
+      "value": "#EDF0F4"
+    },
+    {
+      "name": "icon_on_banner",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "text_on_primary_secondary",
+      "value": "#E6F0FF"
     }
   ]
 }
