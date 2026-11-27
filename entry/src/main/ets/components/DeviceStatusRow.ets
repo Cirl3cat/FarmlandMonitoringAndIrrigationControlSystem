@@ -9,7 +9,8 @@ import { AppTheme, LightTheme } from '../theme/AppTheme'
 export struct DeviceStatusRow {
   label: string = ''
   icon: Resource = $r('app.media.ic_bolt')
-  on: boolean = false
+  /** 必须 @Prop：普通成员不会随父页面状态更新，行会一直停在初始的「已停止」 */
+  @Prop on: boolean = false
   showDivider: boolean = true
   @StorageProp('theme') theme: AppTheme = LightTheme
 

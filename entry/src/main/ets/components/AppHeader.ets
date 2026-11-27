@@ -10,16 +10,20 @@ import { AppTheme, LightTheme } from '../theme/AppTheme'
  */
 @Component
 export struct AppHeader {
-  title: string = ''
+  /**
+   * 这几个必须是 @Prop：普通成员只在初始化时取值，父页面状态变了不会同步过来
+   * （v0.5.6 修的就是这个 —— 首页状态行一直停在「正在同步...」）。
+   */
+  @Prop title: string = ''
   /** 普通副标题（与状态行二选一） */
-  subtitle: string = ''
+  @Prop subtitle: string = ''
   /** 带色点的状态行，如"数据同步成功" */
-  statusText: string = ''
-  statusColor: string = ''
+  @Prop statusText: string = ''
+  @Prop statusColor: string = ''
   /** 状态行右侧的次要信息，如"14:28 更新" */
-  metaText: string = ''
+  @Prop metaText: string = ''
   /** 右上角关闭（二级页面用） */
-  showClose: boolean = false
+  @Prop showClose: boolean = false
   onClose: () => void = () => {}
 
   @StorageProp('theme') theme: AppTheme = LightTheme

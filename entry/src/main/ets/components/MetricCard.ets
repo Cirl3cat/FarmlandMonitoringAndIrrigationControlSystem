@@ -7,7 +7,8 @@ import { AppTheme, LightTheme } from '../theme/AppTheme'
 @Component
 export struct MetricCard {
   title: string = ''
-  value: string = '--'
+  /** 必须 @Prop：普通成员不会随父页面状态更新，数值会永远停在「--」 */
+  @Prop value: string = '--'
   unit: string = ''
   icon: Resource = $r('app.media.datapage_temperature_sun')
   /** 图标底的色相（6 位 hex），透明度在组件内统一叠 */

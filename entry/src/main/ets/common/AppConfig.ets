@@ -1,27 +1,35 @@
 import { Secrets } from './Secrets'
 
 /**
- * 非敏感的环境配置。
- * 所有"魔法字符串"集中在此，业务代码不再出现 URL / 项目 ID / 服务 ID。
+ * 环境配置。
+ *
+ * 这里只放**不敏感**的东西：版本号、IAM 公共端点、轮询间隔、内容限宽、服务 ID。
+ * 账号口令、IoTDA 实例域名、项目 ID、设备 ID 全在 `Secrets.ets`（已 gitignore），
+ * 下面三个 getter 只是把它们透出来 —— 业务代码仍然只认 AppConfig，不直接碰 Secrets。
  */
 export class AppConfig {
   /** 语义化版本号 —— 唯一出处；改版本时同步 app.json5 的 versionName / versionCode */
-  static readonly VERSION: string = '0.5.5'
+  static readonly VERSION: string = '0.5.6'
 
-  /** IAM 认证地址（华为云统一身份认证） */
+  /** IAM 认证地址（华为云统一身份认证的公共端点，所有账号共用，非敏感） */
   static readonly IAM_ENDPOINT: string = 'https://iam.myhuaweicloud.com/v3/auth/tokens'
 
-  /** 设备接入实例域名 */
-  static readonly IOT_ENDPOINT: string =
-    'https://YOUR_INSTANCE_ID.st1.iotda-app.cn-north-4.myhuaweicloud.com'
+  /** 设备接入实例域名（每个账号实例各不相同 → 放在 Secrets.ets） */
+  static get IOT_ENDPOINT(): string {
+    return Secrets.IOT_ENDPOINT
+  }
 
-  /** 项目 ID */
-  static readonly PROJECT_ID: string = 'YOUR_PROJECT_ID'
+  /** 项目 ID（见 Secrets.ets） */
+  static get PROJECT_ID(): string {
+    return Secrets.PROJECT_ID
+  }
 
-  /** 设备 ID */
-  static readonly DEVICE_ID: string = 'YOUR_DEVICE_ID'
+  /** 设备 ID，格式 `<产品ID>_<设备节点名>`（见 Secrets.ets） */
+  static get DEVICE_ID(): string {
+    return Secrets.DEVICE_ID
+  }
 
-  /** 产品服务 ID（与南向上报的 service_id 必须一致） */
+  /** 产品服务 ID（与南向上报的 service_id 必须一致；属于协议契约，非敏感） */
   static readonly SERVICE_ID: string = 'smartHome'
 
   /** 影子查询地址 */

@@ -25,7 +25,7 @@ HarmonyOS（ArkTS）手机端看板：从华为云 IoTDA 读取设备影子，�
 ## 快速开始
 
 1. 用 DevEco Studio 打开本目录，配置签名（`build-profile.json5` 的 `signingConfigs`）—— 模拟器可不签名直接装。
-2. 把 `entry/src/main/ets/common/Secrets.example.ets` 复制成同目录的 `Secrets.ets`，填上自己的 IAM 账号口令（真实的 `Secrets.ets` 已在 `.gitignore` 里，不会进版本库）。
+2. 把 `entry/src/main/ets/common/Secrets.example.ets` 复制成同目录的 `Secrets.ets`，填上自己的云平台信息：IAM 用户名 / 密码 / 账号名，以及 IoTDA 的**实例域名、项目 ID、设备 ID**（真实的 `Secrets.ets` 已在 `.gitignore` 里，不会进版本库）。
 3. 运行（云端无上报时页面数值显示 `--`、状态显示「已停止」属于预期）。
 
 命令行编译（无需打开 IDE）：
@@ -46,8 +46,8 @@ $env:DEVECO_SDK_HOME='<DevEco Studio>\sdk'
 entry/src/main/ets/
 ├── entryability/EntryAbility.ets   启动：初始化主题 → 状态栏配色 → 加载首页
 ├── common/
-│   ├── AppConfig.ets               域名 / 项目 ID / 设备 ID / 轮询间隔（非敏感配置的唯一出处）
-│   ├── Secrets.ets                 账号口令（唯一敏感文件，勿提交）
+│   ├── AppConfig.ets               版本 / IAM 公共端点 / 服务 ID / 轮询间隔 / 内容限宽（非敏感配置的唯一出处）
+│   ├── Secrets.ets                 账号口令 + IoTDA 实例域名 / 项目 ID / 设备 ID（唯一敏感文件，已 gitignore）
 │   ├── Http.ets                    全项目唯一 HTTP 出口
 │   ├── AppRouter.ets               路由 + 未实现功能的统一提示
 │   └── Logger.ets                  hilog 封装
@@ -167,7 +167,7 @@ properties : illumination "396.67Lux" | temperature "31.48℃" | humidity "52.59
 | 项 | 旧 | 新 |
 |---|---|---|
 | 分层 | DataPage 409 行内混网络+解析+UI | service / model / viewmodel / components 分层 |
-| 凭证 | 散落在 2 个页面源码里 | 只在 `Secrets.ets` |
+| 凭证 | 散落在 2 个页面源码里（口令 + 实例域名 + 项目/设备 ID） | 全部收口到 `Secrets.ets`（gitignore），仓库里只有占位模板 |
 | token | 每次刷新重新登录 IAM | 缓存到真实过期时间，401 自动重登 |
 | 状态判定 | 只认小写 `on`，云端给 `ON` → 永远灰 | `isOn()` 统一收口 |
 | 单位 | UI 与云端各拼一次 → `25.50℃ °C` | 解析时归一，只显示一次 |
